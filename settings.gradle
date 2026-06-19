@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+<<<<<<< HEAD
+rootProject.name = 'mace-cooldown-mod'
+=======
+rootProject.name = 'combat-log-mod'
+>>>>>>> 0d0c52994ba6ab6938837d043dc058e58362fa5d

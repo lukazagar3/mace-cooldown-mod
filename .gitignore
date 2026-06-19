@@ -1,0 +1,26 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Minecraft Server files
+server/.fabric/
+server/config/
+server/libraries/
+server/logs/
+server/mods/
+server/versions/
+server/jdk25/
+server/world/
+server/fabric-server.jar
+server/eula.txt
+server/server.properties
+server/banned-ips.json
+server/banned-players.json
+server/ops.json
+server/usercache.json
+server/whitelist.json

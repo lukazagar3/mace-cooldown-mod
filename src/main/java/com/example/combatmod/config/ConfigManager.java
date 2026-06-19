@@ -1,0 +1,47 @@
+package com.example.combatmod.config;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class ConfigManager {
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+<<<<<<< HEAD
+    private static final File CONFIG_FILE = new File("config/mace-cooldown-mod.json");
+=======
+    private static final File CONFIG_FILE = new File("config/combat-log-mod.json");
+>>>>>>> 0d0c52994ba6ab6938837d043dc058e58362fa5d
+    private static ModConfig config;
+
+    public static void load() {
+        if (CONFIG_FILE.exists()) {
+            try (FileReader reader = new FileReader(CONFIG_FILE)) {
+                config = GSON.fromJson(reader, ModConfig.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (config == null) {
+            config = new ModConfig();
+            save();
+        }
+    }
+
+    public static void save() {
+        CONFIG_FILE.getParentFile().mkdirs();
+        try (FileWriter writer = new FileWriter(CONFIG_FILE)) {
+            GSON.toJson(config, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ModConfig getConfig() {
+        if (config == null) load();
+        return config;
+    }
+}
