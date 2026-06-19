@@ -1,6 +1,6 @@
 # Requirements — Fabric Combat & Ranked Mod
 
-> Glossary: see [CONTEXT.md](file:///C:/Users/Luka/projects/fabric-combat-ranked-mod/docs/CONTEXT.md).
+> Glossary: see [CONTEXT.md](file:///C:/Users/Luka/projects/mace-cooldown-mod/docs/CONTEXT.md).
 
 ## 1. Cooldowns
 
