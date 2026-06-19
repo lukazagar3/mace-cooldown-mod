@@ -10,11 +10,7 @@ import java.io.IOException;
 
 public class ConfigManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-<<<<<<< HEAD
     private static final File CONFIG_FILE = new File("config/mace-cooldown-mod.json");
-=======
-    private static final File CONFIG_FILE = new File("config/combat-log-mod.json");
->>>>>>> 0d0c52994ba6ab6938837d043dc058e58362fa5d
     private static ModConfig config;
 
     public static void load() {

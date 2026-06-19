@@ -1,16 +1,9 @@
 {
   "schemaVersion": 1,
-<<<<<<< HEAD
   "id": "mace-cooldown-mod",
   "version": "1.0.0",
   "name": "Mace Cooldown Mod",
   "description": "Adds a configurable cooldown to the Mace weapon for server-side PvP balance.",
-=======
-  "id": "combat-log-mod",
-  "version": "1.0.0",
-  "name": "Combat Log Mod",
-  "description": "Kills players who disconnect during PvP combat. Configurable combat timer.",
->>>>>>> 0d0c52994ba6ab6938837d043dc058e58362fa5d
   "authors": ["CombatMod"],
   "contact": {},
   "license": "MIT",
@@ -20,11 +13,7 @@
   },
   "depends": {
     "fabricloader": ">=0.16.10",
-<<<<<<< HEAD
     "minecraft": [">=1.21", "<=1.21.11"],
-=======
-    "minecraft": ">=1.21.0",
->>>>>>> 0d0c52994ba6ab6938837d043dc058e58362fa5d
     "fabric-api": "*"
   }
 }
