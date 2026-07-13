@@ -1,0 +1,28 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.gradle.userdev'
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:26.1.2.76"
+    implementation project(':common')
+    implementation 'mc-bridge:common'
+    implementation 'mc-bridge:neoforge-26.x'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+jar {
+    from(project(':common').sourceSets.main.output)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.findAll { it.absolutePath.contains("mc-bridge") }.collect { zipTree(it) }
+    }
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
+}
