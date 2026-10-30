@@ -10,18 +10,45 @@ The system manages weapon and action cooldowns to regulate player-versus-player 
 
 <!-- @REQ1.1@ (FROM: @REQ1@) -->
 ### Mace Cooldown
-The system SHALL apply a configurable item cooldown to the Mace when a player hits another player.
+The system SHALL apply a configurable item cooldown to the Mace when a player hits a target whose category is enabled in `config/mace-cooldown-mod.json` (`PlayerCooldown`, `MonsterCooldown`, `EntityCooldown`).
 - Priority: MUST
 - Rationale: Regulates Mace high-damage strikes in PVP.
 - Acceptance:
   - Scenario: Mace hits a player
-    - GIVEN a player holding a Mace
+    - GIVEN a player holding a Mace AND `PlayerCooldown` is true
     - WHEN they strike another player with the Mace
     - THEN the Mace item in their hand is put on a visual cooldown matching the configured duration
-  - Scenario: Mace hits an entity
-    - GIVEN a player holding a Mace
+  - Scenario: Mace hits a monster
+    - GIVEN `MonsterCooldown` is true
+    - WHEN a player strikes a zombie, enderman or any other entity in the vanilla MONSTER category with the Mace
+    - THEN the Mace is put on the configured cooldown
+  - Scenario: Mace hits any entity
+    - GIVEN `EntityCooldown` is true
+    - WHEN a player strikes any entity (cow, zombie, player, ...) with the Mace
+    - THEN the Mace is put on the configured cooldown
+  - Scenario: Mace hits a non-enabled entity
+    - GIVEN only `PlayerCooldown` is true (default)
     - WHEN they strike a sheep or zombie with the Mace
     - THEN the Mace item is not put on the custom visual cooldown, and uses the vanilla attack speed cooldown
+
+<!-- @REQ1.4@ (FROM: @REQ1@) -->
+### Mace Enchantment Restriction
+The system SHALL prevent maces from being enchanted when `EnchantmentsAllowed` is false in `config/mace-cooldown-mod.json`.
+- Priority: MUST
+- Rationale: Lets server owners disable enchanted-mace burst damage.
+- Acceptance:
+  - Scenario: Anvil
+    - GIVEN `EnchantmentsAllowed` is false
+    - WHEN a player puts a mace and an enchanted book in an anvil
+    - THEN no result is produced
+  - Scenario: Enchanting table
+    - GIVEN `EnchantmentsAllowed` is false
+    - WHEN a player tries to enchant a mace in an enchanting table
+    - THEN the enchant is refused
+  - Scenario: Existing enchanted mace
+    - GIVEN `EnchantmentsAllowed` is false
+    - WHEN a player has an enchanted mace in their inventory
+    - THEN its enchantments are removed within one second
 
 <!-- @REQ1.2@ (FROM: @REQ1@) -->
 ### Combat Cooldown

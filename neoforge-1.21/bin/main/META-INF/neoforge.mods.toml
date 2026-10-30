@@ -1,0 +1,23 @@
+license="MIT"
+
+[[mods]]
+modId="macecooldownmod"
+version="1.0.0"
+displayName="Mace Cooldown Mod"
+description='''
+Adds a configurable cooldown to the Mace weapon for server-side PvP balance.
+'''
+
+[[dependencies.macecooldownmod]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.macecooldownmod]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21, 1.21.1]"
+    ordering="NONE"
+    side="BOTH"

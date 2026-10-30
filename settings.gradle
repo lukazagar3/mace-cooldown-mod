@@ -21,4 +21,4 @@ rootProject.name = 'mace-cooldown-mod'
 
 includeBuild '../mc-bridge'
 
-include 'common', 'fabric-1.21', 'fabric-26.x', 'fabric-26.2', 'neoforge-1.21', 'neoforge-26.x'
+include 'common', 'fabric-1.21', 'fabric-26.x', 'fabric-26.2', 'fabric-26.3', 'neoforge-1.21', 'neoforge-26.x'

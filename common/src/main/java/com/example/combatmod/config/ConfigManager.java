@@ -23,8 +23,9 @@ public class ConfigManager {
         }
         if (config == null) {
             config = new ModConfig();
-            save();
         }
+        // Always write back so newly added keys appear in older config files.
+        save();
     }
 
     public static void save() {

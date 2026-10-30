@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "mace-cooldown-mod",
+  "version": "1.0.0",
+  "name": "Mace Cooldown Mod",
+  "description": "Adds a configurable cooldown to the Mace weapon for server-side PvP balance.",
+  "authors": ["CombatMod"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.example.combatmod.CombatMod"]
+  },
+  "mixins": [
+    "mace-cooldown-mod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "26.3",
+    "fabric-api": "*"
+  }
+}
